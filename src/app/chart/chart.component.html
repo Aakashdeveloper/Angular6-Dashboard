@@ -1,0 +1,73 @@
+<div class="row" style="margin-left:20px" *ngIf="showMonday">
+    <a (click)="highMonday()">
+        <div class="col-md-3" style="background-color:green;height:100px;width:140px;margin-left:20px;font-size:28px;text-align:center;color:white">
+                    <b>12</b>
+                    <br/>
+                    <b>High</b>  
+        </div>
+    </a>
+    <a (click)="mediumMonday()">
+        <div class="col-md-3" style="background-color:orange;height:100px;width:140px;margin-left:20px;font-size:28px;text-align:center;color:white">
+                    <b>10</b>
+                    <br/>
+                    <b>Medium</b>
+        </div>
+    </a>
+    <a (click)="lowMonday()">
+        <div class="col-md-3" style="background-color:red;height:100px;width:140px;margin-left:20px;font-size:28px;text-align:center;color:white">
+            <b>6</b>
+            <br/>
+            <b>Low</b>
+        </div>
+    </a>
+</div>
+<div class="row" style="margin-left:20px" *ngIf="showThrusday">
+    <div class="col-md-3" style="background-color:green;height:100px;width:140px;margin-left:20px;font-size:28px;text-align:center;color:white">
+               
+                <b>6</b>
+                <br/>
+                <b>Active</b>
+            
+    </div>
+    <div class="col-md-3" style="background-color:orange;height:100px;width:140px;margin-left:20px;font-size:28px;text-align:center;color:white">
+                <b>10</b>
+                <br/>
+                <b>Moderate</b>
+    </div>
+    <div class="col-md-3" style="background-color:red;height:100px;width:140px;margin-left:20px;font-size:28px;text-align:center;color:white">
+                <b>7</b>
+                <br/>
+                <b>Least</b>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-6">
+        <h2 style="background-color:palevioletred;font-size:2rem">Enquery This Week</h2>
+        <canvas id="barChart" width="300" height="150" class="chartjs-render-monitor" style="display:block"></canvas>
+        <div style="margin-top:-22px">
+        <button value="click" class="btn btn-primary" style="margin-left:48px;" (click)="onMon()">MON</button>
+        <button value="click" class="btn btn-primary" style="margin-left:47px;">TUE</button>
+        <button value="click" class="btn btn-primary" style="margin-left:47px;">WED</button>
+        <button value="click" class="btn btn-primary" style="margin-left:47px;" (click)="onThru()">THR</button>
+        <button value="click" class="btn btn-primary" style="margin-left:47px;" >FRI</button>
+        </div>
+    </div>
+    <div class="col-md-6">
+            <h2 style="background-color:violet;font-size:2rem">Latest Trend</h2>
+            <canvas id="lineChart1" width="350" height="275" class="chartjs-render-monitor" style="display:block;width:550px"></canvas>
+    </div>
+    
+    
+    <!--
+    <div class="col-md-6">
+        <h2 style="background-color:violet;font-size:2rem">Line Chart</h2>
+        <canvas id="lineChart" width="350" height="275" class="chartjs-render-monitor" style="display:block;width:550px"></canvas>
+        <button>Click</button>
+    </div>
+    <div class="col-md-6">
+        <h2 style="background-color:palegreen;font-size:2rem">PIE Chart</h2>
+        <canvas id="pieChart" width="350" height="275" class="chartjs-render-monitor" style="display:block;width:550px"></canvas>
+    </div>
+-->
+    
+</div>

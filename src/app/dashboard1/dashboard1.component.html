@@ -1,0 +1,137 @@
+<h1>Advies Dashboard</h1>
+<div class="row" style="margin-left:20px" *ngIf="showMonday">
+        <a (click)="highMonday()">
+            <div class="col-md-3" style="background-color:green;height:100px;width:140px;margin-left:20px;font-size:28px;text-align:center;color:white">
+                        <b>12</b>
+                        <br/>
+                        <b>Hoog</b>  
+            </div>
+        </a>
+        <a (click)="mediumMonday()">
+            <div class="col-md-3" style="background-color:orange;height:100px;width:140px;margin-left:20px;font-size:28px;text-align:center;color:white">
+                        <b>10</b>
+                        <br/>
+                        <b>Medium</b>
+            </div>
+        </a>
+        <a (click)="lowMonday()">
+            <div class="col-md-3" style="background-color:red;height:100px;width:140px;margin-left:20px;font-size:28px;text-align:center;color:white">
+                <b>6</b>
+                <br/>
+                <b>Laag</b>
+            </div>
+        </a>
+        &nbsp;&nbsp;
+        <button class="btn btn-danger" value="close" (click)="onCancel()">&times;</button>
+    </div>
+    <div class="row" style="margin-left:20px" *ngIf="showThrusday">
+            <a (click)="highMonday()">
+        <div class="col-md-3" style="background-color:green;height:100px;width:140px;margin-left:20px;font-size:28px;text-align:center;color:white">
+                   
+                    <b>12</b>
+                    <br/>
+                    <b>Hoog</b>
+                
+        </div>
+        </a>
+        <div class="col-md-3" style="background-color:orange;height:100px;width:140px;margin-left:20px;font-size:28px;text-align:center;color:white">
+                    <b>6</b>
+                    <br/>
+                    <b>Medium</b>
+        </div>
+        <div class="col-md-3" style="background-color:red;height:100px;width:140px;margin-left:20px;font-size:28px;text-align:center;color:white">
+                    <b>5</b>
+                    <br/>
+                    <b>Laag</b>
+        </div>
+        &nbsp;&nbsp;
+        <button class="btn btn-danger" value="close" (click)="onCancel1()">&times;</button>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <h2 style="background-color:rgb(77, 124, 224);font-size:2rem;text-align:center;color:white">Verzoeken deze week</h2>
+            <canvas id="barChart" width="300" height="230" class="chartjs-render-monitor" style="display:block"></canvas>
+            <div style="margin-top:-22px">
+            <button value="click" class="btn btn-primary" style="margin-left:48px;" (click)="onMon()">MA</button>
+            <button value="click" class="btn btn-primary" style="margin-left:47px;">DI</button>
+            <button value="click" class="btn btn-primary" style="margin-left:47px;">WED</button>
+            <button value="click" class="btn btn-primary" style="margin-left:47px;" (click)="onThru()">DO</button>
+            <button value="click" class="btn btn-primary" style="margin-left:47px;" >FR</button>
+            </div>
+        </div>
+        <div class="col-md-6">
+                <h2 style="background-color:violet;font-size:2rem;text-align:center;color:white">Verzoeken dit jaar</h2>
+                <canvas id="lineChart" width="350" height="275" class="chartjs-render-monitor" style="display:block;width:550px"></canvas>
+        </div>
+        
+        
+        <!--
+        <div class="col-md-6">
+            <h2 style="background-color:violet;font-size:2rem">Line Chart</h2>
+            <canvas id="lineChart" width="350" height="275" class="chartjs-render-monitor" style="display:block;width:550px"></canvas>
+            <button>Click</button>
+        </div>
+        <div class="col-md-6">
+            <h2 style="background-color:palegreen;font-size:2rem">PIE Chart</h2>
+            <canvas id="pieChart" width="350" height="275" class="chartjs-render-monitor" style="display:block;width:550px"></canvas>
+        </div>
+    -->
+        
+    </div>
+<div  *ngIf="showTableMonday">
+
+<div class="example-header">
+    <mat-form-field>
+      <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+    </mat-form-field>
+  </div>
+
+  
+  <div class="example-container mat-elevation-z8">
+  
+    <mat-table [dataSource]="dataSource" matSort>
+  
+      <!-- ID Column -->
+      <ng-container matColumnDef="id">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> ID </mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{row.id}} </mat-cell>
+      </ng-container>
+  
+      <!-- Progress Column -->
+      <ng-container matColumnDef="email">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Email </mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{row.email}}@gmail.com</mat-cell>
+      </ng-container>
+  
+      <!-- Name Column -->
+      <ng-container matColumnDef="jaarlijks_inkomen">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Jaarlijks inkomen </mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{row.jaarlijks_inkomen|currency:'€'}} </mat-cell>
+      </ng-container>
+  
+      <!-- Color Column -->
+      <ng-container matColumnDef="gem_hypotheek_waarde">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Gemiddeld hypotheek </mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{row.gem_hypotheek_waarde|currency:'€'}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="button">
+            <mat-header-cell *matHeaderCellDef> Button </mat-header-cell>
+            
+            <mat-cell *matCellDef="let row"> <button value="Send" class="btn btn-primary">Verzenden</button>  </mat-cell>
+           
+    </ng-container>
+    
+  
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;">
+      </mat-row>
+    </mat-table>
+  
+    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+  </div>
+</div>
+  
+  <!-- Copyright 2018 Google Inc. All Rights Reserved.
+      Use of this source code is governed by an MIT-style license that
+      can be found in the LICENSE file at http://angular.io/license -->
